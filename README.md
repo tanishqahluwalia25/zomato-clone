@@ -4,7 +4,7 @@
 
 ### Get Started:
 > 1. Make sure Android Studios, Node and react native&expo is set up in the device
-> (Please follow the link if not already set up)
+> (Please follow the link if not already set up https://reactnative.dev/docs/environment-setup)
 > 2. Fork the repository and run the command 
 > 		> _npm i_ or _yarn_
 > 3. After the Node Modules are installed, start the project. To start the project run 
