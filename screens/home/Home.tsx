@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import RestaurantCard from "../../components/cards/RestaurantCard";
 // import Animated from "react-native-reanimated";
 import withSafeArea from "../../utils/withSafeArea";
-import Header from "./Header";
-import Location from "./Location";
+import Header from "../../components/topBar/Header";
+import Location from "../../components/topBar/Location";
 
 const LOCATION_HEIGHT = 40;
 const Home = ({ navigation }: any) => {
@@ -26,14 +26,7 @@ const Home = ({ navigation }: any) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Animated.View
-        style={{
-          left: 0,
-          right: 0,
-          top: 0,
-          height: headerY,
-        }}
-      >
+      <Animated.View style={[styles.locationStyles, { height: headerY }]}>
         <Location navigation={navigation} />
       </Animated.View>
 
@@ -86,4 +79,11 @@ const Home = ({ navigation }: any) => {
 
 export default withSafeArea(Home);
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  locationStyles: {
+    left: 0,
+    right: 0,
+    top: 0,
+    marginBottom: -1,
+  },
+});

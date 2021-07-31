@@ -7,7 +7,7 @@ import RestaurantCard, {
 } from "../../components/cards/RestaurantCard";
 import Colors from "../../resources/Colors";
 import withSafeArea from "../../utils/withSafeArea";
-import Header from "../home/Header";
+import Header from "../../components/topBar/Header";
 
 const Favorites = () => {
   const { likedList } = useSelector((state: any) => state.likesReducer);

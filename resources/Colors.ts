@@ -1,7 +1,8 @@
 enum Colors {
     primary = '#CB202D',
     secondary = 'gray',
-    white = 'white'
+    white = 'white',
+    black = "black"
 }
 
 export default Colors

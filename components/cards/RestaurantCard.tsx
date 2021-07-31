@@ -48,23 +48,7 @@ const RestaurantCard = ({
   }, [likedList]);
 
   return (
-    <View
-      style={{
-        borderRadius: 15,
-        overflow: "hidden",
-        margin: 10,
-        borderColor: "#0000001c",
-        borderWidth: 0.2,
-        shadowOffset: { width: 10, height: 10 },
-        shadowColor: "#00000039",
-        shadowRadius: 10,
-        shadowOpacity: 0.5,
-        elevation: 3,
-        maxWidth: 400,
-        width: "95%",
-        // marginHorizontal: "auto",
-      }}
-    >
+    <View style={styles.wrapper}>
       <Image
         source={{
           uri:
@@ -73,11 +57,7 @@ const RestaurantCard = ({
             ",food," +
             "location",
         }}
-        style={{
-          resizeMode: "cover",
-          width: "100%",
-          height: 200,
-        }}
+        style={styles.imageStyles}
       />
 
       <Pressable
@@ -96,16 +76,7 @@ const RestaurantCard = ({
               id,
             });
         }}
-        style={{
-          position: "absolute",
-          right: 10,
-          top: 10,
-          borderRadius: 55,
-          backgroundColor: "white",
-          padding: 10,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        style={styles.likeButton}
       >
         <Icon
           name={liked ? "heart" : "hearto"}
@@ -114,28 +85,13 @@ const RestaurantCard = ({
         />
       </Pressable>
 
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: 10,
-        }}
-      >
+      <View style={styles.detailsWrapper}>
         <View>
           <Text>{name}</Text>
           <Text>{description}</Text>
         </View>
         <View style={{ alignItems: "flex-end" }}>
-          <Text
-            style={{
-              backgroundColor: "darkgreen",
-              paddingHorizontal: 8,
-              paddingVertical: 2,
-              borderRadius: 5,
-              color: "white",
-            }}
-          >
+          <Text style={styles.rating}>
             {rating} <Icon name="staro" size={15} />
           </Text>
           <Text>₹{price} for two</Text>
@@ -147,4 +103,48 @@ const RestaurantCard = ({
 
 export default RestaurantCard;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  imageStyles: {
+    resizeMode: "cover",
+    width: "100%",
+    height: 200,
+  },
+  detailsWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 10,
+  },
+  rating: {
+    backgroundColor: "darkgreen",
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 5,
+    color: "white",
+  },
+  likeButton: {
+    position: "absolute",
+    right: 10,
+    top: 10,
+    borderRadius: 55,
+    backgroundColor: "white",
+    padding: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  wrapper: {
+    borderRadius: 15,
+    overflow: "hidden",
+    margin: 10,
+    borderColor: "#0000001c",
+    borderWidth: 0.2,
+    shadowOffset: { width: 10, height: 10 },
+    shadowColor: "#00000039",
+    shadowRadius: 10,
+    shadowOpacity: 0.5,
+    elevation: 3,
+    maxWidth: 400,
+    width: "95%",
+    // marginHorizontal: "auto",
+  },
+});

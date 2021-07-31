@@ -1,7 +1,6 @@
 import "react-native-gesture-handler";
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./screens/home/Home";
 import Profile from "./screens/profile/Profile";
 import Favorites from "./screens/favorites/Favorites";
@@ -9,8 +8,8 @@ import CustomTabIcon from "./components/Tabs/CustomTabIcon";
 import { useDispatch, useSelector } from "react-redux";
 import restaurantsActions from "./redux/restaurants/restaurantsActions";
 import Colors from "./resources/Colors";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import Badge from "./components/Tabs/Badge";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -34,7 +33,6 @@ const Tabs = () => {
     <Tab.Navigator
       initialRouteName="Home"
       tabBarOptions={{
-        // showLabel: false,
         allowFontScaling: true,
         labelStyle: {
           textTransform: "none",
@@ -53,33 +51,10 @@ const Tabs = () => {
         pressOpacity: 0.2,
 
         inactiveTintColor: Colors.secondary,
-        renderBadge: ({ route }) => (
-          <>
-            {(route as any).name === "Favorites" && (
-              <View
-                style={{
-                  backgroundColor: Colors.primary,
-                  height: 20,
-                  width: 20,
-                  borderRadius: 15,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  right: 10,
-                  top: 5,
-                  padding: 1,
-                }}
-              >
-                <Text
-                  style={{
-                    color: Colors.white,
-                  }}
-                >
-                  {(route as any).name === "Favorites" && count}
-                </Text>
-              </View>
-            )}
-          </>
-        ),
+        renderBadge: ({ route }) =>
+          (route as any).name === "Favorites" && (
+            <Badge route={route} count={count} />
+          ),
       }}
       swipeEnabled={true}
       tabBarPosition="bottom"
