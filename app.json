@@ -4,11 +4,11 @@
     "slug": "zomato",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/zomato.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#CB202D"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,12 +21,13 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/zomato.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.tanishqwalia25.zomato"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/zomato.png"
     }
   }
 }
